@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     {{ content_for_header }}
     <!-- Header hook for plugins -->
+    {{ 'themefisher-font.css' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+    {{ 'animate.css' | asset_url | stylesheet_tag }}
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
     {{ 'main.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
@@ -41,6 +46,16 @@
     <main role="main">
       {{ content_for_layout }}
     </main>
+    {{ 'jquery.min.js' | asset_url | script_tag }}
+    {{ 'bootstrap.min.js' | asset_url | script_tag }}
+    {{ 'jquery.bootstrap-touchspin.min.js' | asset_url | script_tag }}
+    {{ 'instafeed.min.js' | asset_url | script_tag }}
+    {{ 'ekko-lightbox.min.js' | asset_url | script_tag }}
+    {{ 'jquery.syotimer.min.js' | asset_url | script_tag }}
+    {{ 'slick.min.js' | asset_url | script_tag }}
+    {{ 'slick-animation.min.js' | asset_url | script_tag }}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    {{ 'gmap.js' | asset_url | script_tag }}
     {{ 'main.js' | asset_url | script_tag }}
   </body>
 </html>
