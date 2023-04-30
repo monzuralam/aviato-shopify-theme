@@ -703,6 +703,11 @@ input[type=tel]:focus {
     border-bottom: 1px solid #dedede;
 }
 
+.top-header .container .row{
+    display: flex;
+    align-items: center;
+}
+
 .top-header .dropdown-menu {
     left: auto;
     right: 0;
@@ -710,6 +715,11 @@ input[type=tel]:focus {
 }
 
 @media (max-width: 480px) {
+    .top-header .contact-number,
+    .top-header .top-menu {
+        display: none;
+    }
+
     .top-header .dropdown-menu {
         right: 0;
         left: 0;
