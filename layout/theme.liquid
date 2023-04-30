@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     {{ content_for_header }}
     <!-- Header hook for plugins -->
-    {{ 'themefisher-font.css' | asset_url | stylesheet_tag }}
+    {{ 'tf-font.css' | asset_url | stylesheet_tag }}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
     {{ 'animate.css' | asset_url | stylesheet_tag }}
     {{ 'slick.css' | asset_url | stylesheet_tag }}
@@ -17,6 +17,8 @@
     {{ 'main.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
+    {% section 'header' %}
+
     {% for link in linklists['main-menu'].links %}
       {% assign child_list_handle = link.title | handleize %}
       {% if linklists[child_list_handle].links != blank %}
