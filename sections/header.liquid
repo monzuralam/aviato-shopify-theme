@@ -146,19 +146,19 @@
 												<li class="dropdown-header">{{ childlink.title }} {{ childlink.length }}</li>
 												<li role="separator" class="divider"></li>
 												{%- for grandchild in childlink.links -%}
-												<li><a href="{{ grandchild.url }}">{{ grandchild.title }}</a></li>
+												<li><a href="{{ grandchild.url }}">{{ grandchild.title | escape }}</a></li>
 												{%- endfor -%}
 											</ul>
 										</div>
 									{%- else -%}
 										<li>
-											<a href="{{ childlink.url }}">{{ childlink.title }}</a>
+											<a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
 										</li>
 									{%- endif -%}
 								{%- endfor -%}
 							</ul>
 						{%- else -%}
-							<a href="{{ link.url }}">{{ link.title }}</a>
+							<a href="{{ link.url }}">{{ link.title | escape }}</a>
 						{%- endif -%}
 					</li>
 					{%- endfor -%}
