@@ -1,0 +1,42 @@
+<section class="page-404">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {%- if section.settings.enable_custom_title_text -%}
+                <h1>{{ section.settings.error_custom_title | escape }}</h1>
+                <h2>{{ section.settings.error_custom_content }}</h2>
+                {%- else -%}
+                <h1>{{ 'general.404.title' | t }}</h1>
+                <h2>{{ 'general.404.subtext_html' | t }}</h2>
+                {%- endif -%}
+                <a href="/" class="btn btn-main"><i class="tf-ion-android-arrow-back"></i> Go Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name"      : "404",
+    "class"     : "section-404",
+    "settings"  : [
+        {
+            "type"      : "checkbox",
+            "id"        : "enable_custom_title_text",
+            "default"   : true,
+            "label"     : "Enable Custom Title & Text"
+        },
+        {
+            "type"      : "text",
+            "id"        : "error_custom_title",
+            "default"   : "404",
+            "label"     : "Title"
+        },
+        {
+            "type"      : "richtext",
+            "id"        : "error_custom_content",
+            "default"   : "<p>Page Not Found</p>",
+            "label"     : "Content"
+        }
+    ]
+}
+{% endschema %}
