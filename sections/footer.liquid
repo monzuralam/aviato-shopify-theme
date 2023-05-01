@@ -50,7 +50,13 @@
                     {%- endfor -%}
 				</ul>
                 {%- endif -%}
-				<p class="copyright-text">&copy; {{ 'now' | date: '%Y'}} - {{ shop.name }} </p>
+				<p class="copyright-text">
+                    {%- if section.settings.enable_copyright_text -%}
+                    {{ section.settings.copyright_text }}
+                    {%- else -%}
+                    &copy; {{ 'now' | date: '%Y'}} - {{ shop.name }}
+                    {%- endif -%}
+                </p>
 			</div>
 		</div>
 	</div>
@@ -107,6 +113,18 @@
             "type"      : "link_list",
             "id"        : "footer_menu",
             "label"     : "Footer Menu"
+        },
+        {
+            "type"      : "checkbox",
+            "id"        : "enable_copyright_text",
+            "default"   : false,
+            "label"     : "Enable Custom Copyright Text"
+        },
+        {
+            "type"      : "inline_richtext",
+            "id"        : "copyright_text",
+            "default"   : "© Aviato | Made with ❤ in Bangladesh",
+            "label"     : "Footer Copyright Text"
         }
     ]
 }
