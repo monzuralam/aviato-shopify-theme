@@ -41,20 +41,15 @@
                     {%- endif -%}
 				</ul>
                 {%- endif -%}
+                {%- if section.settings.enable_footer_menu -%}
 				<ul class="footer-menu text-uppercase">
+                    {%- for link in section.settings.footer_menu.links -%}
 					<li>
-						<a href="contact.html">CONTACT</a>
+						<a href="{{ link.url }}">{{ link.title | escape }}</a>
 					</li>
-					<li>
-						<a href="shop.html">SHOP</a>
-					</li>
-					<li>
-						<a href="pricing.html">Pricing</a>
-					</li>
-					<li>
-						<a href="contact.html">PRIVACY POLICY</a>
-					</li>
+                    {%- endfor -%}
 				</ul>
+                {%- endif -%}
 				<p class="copyright-text">&copy; {{ 'now' | date: '%Y'}} - {{ shop.name }} </p>
 			</div>
 		</div>
@@ -101,6 +96,17 @@
             "id"        : "youtube_url",
             "default"   : "https://youtube.com/",
             "label"     : "Youtube URL"
+        },
+        {
+            "type"      : "checkbox",
+            "id"        : "enable_footer_menu",
+            "default"   : true,
+            "label"     : "Enable Footer Menu"   
+        },
+        {
+            "type"      : "link_list",
+            "id"        : "footer_menu",
+            "label"     : "Footer Menu"
         }
     ]
 }
