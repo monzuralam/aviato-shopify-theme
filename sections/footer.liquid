@@ -1,0 +1,107 @@
+<footer class="footer section text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+                {%- if section.settings.enable_social_icon -%}
+				<ul class="social-media">
+                    {%- if section.settings.facebook_url != blank -%}
+					<li>
+						<a href="{{ section.settings.facebook_url }}">
+							<i class="tf-ion-social-facebook"></i>
+						</a>
+					</li>
+                    {%- endif -%}
+                    {%- if section.settings.twitter_url != blank -%}
+					<li>
+						<a href="{{ section.settings.twitter_url }}">
+							<i class="tf-ion-social-twitter"></i>
+						</a>
+					</li>
+                    {%- endif -%}
+                    {%- if section.settings.instagram_url != blank -%}
+                    <li>
+						<a href="{{ section.settings.instagram_url }}">
+							<i class="tf-ion-social-instagram"></i>
+						</a>
+					</li>
+                    {%- endif -%}
+                    {%- if section.settings.pinterest_url != blank -%}
+					<li>
+						<a href="{{ section.settings.pinterest_url }}">
+							<i class="tf-ion-social-pinterest"></i>
+						</a>
+					</li>
+                    {%- endif -%}
+                    {%- if section.settings.youtube_url != blank -%}
+                    <li>
+						<a href="{{ section.settings.youtube_url }}">
+							<i class="tf-ion-social-youtube"></i>
+						</a>
+					</li>
+                    {%- endif -%}
+				</ul>
+                {%- endif -%}
+				<ul class="footer-menu text-uppercase">
+					<li>
+						<a href="contact.html">CONTACT</a>
+					</li>
+					<li>
+						<a href="shop.html">SHOP</a>
+					</li>
+					<li>
+						<a href="pricing.html">Pricing</a>
+					</li>
+					<li>
+						<a href="contact.html">PRIVACY POLICY</a>
+					</li>
+				</ul>
+				<p class="copyright-text">&copy; {{ 'now' | date: '%Y'}} - {{ shop.name }} </p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+{% schema %}
+{
+    "name"      : "Footer",
+    "class"     : "section-footer",
+    "settings"  : [
+        {
+            "type"      : "checkbox",
+            "id"        : "enable_social_icon",
+            "default"   : true,
+            "label"     : "Enable Social Icon"   
+        },
+        {
+            "type"      : "text",
+            "id"        : "facebook_url",
+            "default"   : "https://facebook.com/",
+            "label"     : "Facebook URL"
+        },
+        {
+            "type"      : "text",
+            "id"        : "twitter_url",
+            "default"   : "https://twitter.com/",
+            "label"     : "Twitter URL"
+        },
+        {
+            "type"      : "text",
+            "id"        : "instagram_url",
+            "default"   : "https://instagram.com/",
+            "label"     : "Instagram URL"
+        },
+        {
+            "type"      : "text",
+            "id"        : "pinterest_url",
+            "default"   : "https://pinterest.com/",
+            "label"     : "Pinterest URL"
+        },
+        {
+            "type"      : "text",
+            "id"        : "youtube_url",
+            "default"   : "https://youtube.com/",
+            "label"     : "Youtube URL"
+        }
+    ]
+}
+{% endschema %}
