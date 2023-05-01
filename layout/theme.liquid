@@ -22,6 +22,8 @@
     <main role="main">
       {{ content_for_layout }}
     </main>
+    
+    {% section 'footer' %}
     {{ 'jquery.min.js' | asset_url | script_tag }}
     {{ 'bootstrap.min.js' | asset_url | script_tag }}
     {{ 'jquery.bootstrap-touchspin.min.js' | asset_url | script_tag }}
