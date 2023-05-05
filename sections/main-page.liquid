@@ -1,0 +1,73 @@
+{%- if section.settings.enable_page_breadcrumb -%}
+<section class="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content">
+					<h1 class="page-name">{{ page.title }}</h1>
+					<ol class="breadcrumb">
+						<li><a href="/">Home</a></li>
+						<li class="active">{{ page.title | downcase }}</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{%- endif -%}
+{%- if section.settings.enable_page_title_content -%}
+<section class="section about-page-section">
+    <div class="container">
+        <div class="row">
+            <h2>{{ page.title | escape }}</h2>
+            {{ page.content }}
+        </div>
+    </div>
+</section>
+{% style %}
+	.about-page-section{
+		padding-top: {{section.settings.page_section_padding_top}}px;
+		padding-bottom: {{section.settings.page_section_padding_bottom}}px;
+	}
+{% endstyle %}
+{%- endif -%}
+{% schema %}
+{
+	"name"		: "Page",
+	"class"		: "page-section",
+	"settings"	: [
+		{
+			"type"		: "header",
+			"content"	: "Page Settings"
+		},
+		{
+			"type"		: "checkbox",
+			"id"		: "enable_page_breadcrumb",
+			"default"	: true,
+			"label"		: "Breadcrumb Enable"
+		},
+		{
+			"type"		: "checkbox",
+			"id"		: "enable_page_title_content",
+			"default"	: true,
+			"label"		: "Enable Page Title & Content"
+		},
+		{
+			"type"		: "header",
+			"content"	: "Style"
+		},
+		{
+			"type"		: "number",
+			"id"		: "page_section_padding_top",
+			"default"	: 40,
+			"label"		: "Padding Top"
+		},
+		{
+			"type"		: "number",
+			"id"		: "page_section_padding_bottom",
+			"default"	: 60,
+			"label"		: "Padding Bottom"
+		}
+	]
+}
+{% endschema %}
