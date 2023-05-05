@@ -1,0 +1,141 @@
+<section class="about section">
+	<div class="container">
+		<div class="row">
+			{%- if section.settings.enable_about_img -%}
+				{%- assign column = 'col-md-6' -%}
+			<div class="{{column}}">
+				{{ section.settings.about_image | image_url: width: 600 | image_tag: class: 'img-responsive', loading: 'lazy' }}
+			</div>
+			{%- else -%}
+				{%- assign column = 'col-md-12' -%}
+			{%- endif -%}
+			<div class="{{column}}">
+				<h2 class="mt-40">{{ section.settings.about_title }}</h2>
+				{{ section.settings.about_content }}
+				{%- if section.settings.about_btn_text != blank -%}
+				<a href="{{ section.settings.about_btn_link }}" class="btn btn-main mt-20">{{ section.settings.about_btn_text }}</a>
+				{%- endif -%}
+			</div>
+		</div>
+		{%- if section.settings.enable_bottom_img -%}
+		<div class="row mt-40">
+			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{{ section.settings.about_bottom_mini_img_1 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+			</div>
+			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{{ section.settings.about_bottom_mini_img_2 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+			</div>
+			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{{ section.settings.about_bottom_mini_img_3 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+			</div>
+			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{{ section.settings.about_bottom_mini_img_4 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+			</div>
+		</div>
+		{%- endif -%}
+	</div>
+</section>
+{% schema %}
+{
+	"name"		: "About Section",
+	"settings"	: [
+		{
+			"type"		: "header",
+			"content"	: "About Section"
+		},
+		{
+			"type"		: "checkbox",
+			"id"		: "enable_about_img",
+			"default"	: true,
+			"label"		: "Enable Image"
+		},
+		{
+			"type"		: "image_picker",
+			"id"		: "about_image",
+			"label"		: "Image"
+		},
+		{
+			"type"		: "text",
+			"id"		: "about_title",
+			"default"	: "About Us",
+			"label"		: "Title"
+		},
+		{
+			"type"		: "richtext",
+			"id"		: "about_content",
+			"default"	: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius enim, accusantium repellat ex autem numquam iure officiis facere vitae itaque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam qui vel cupiditate exercitationem, ea fuga est velit nulla culpa modi quis iste tempora non, suscipit repellendus labore voluptatem dicta amet?</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam qui vel cupiditate exercitationem, ea fuga est velit nulla culpa modi quis iste tempora non, suscipit repellendus labore voluptatem dicta amet?</p>",
+			"label"		: "Content"
+		},
+		{
+			"type"		: "text",
+			"id"		: "about_btn_text",
+			"default"	: "Download Company Profile",
+			"label"		: "Button Text"
+		},
+		{
+			"type"		: "url",
+			"id"		: "about_btn_link",
+			"label"		: "Button URL"
+		},
+		{
+			"type"		: "header",
+			"content"	: "Bottom"
+		},
+		{
+			"type"		: "checkbox",
+			"id"		: "enable_bottom_img",
+			"default"	: true,
+			"label"		: "Enable Bottom Image"
+		},
+		{
+			"type"		: "image_picker",
+			"id"		: "about_bottom_mini_img_1",
+			"label"		: "Image 1"
+		},
+		{
+			"type"		: "image_picker",
+			"id"		: "about_bottom_mini_img_2",
+			"label"		: "Image 2"
+		},
+		{
+			"type"		: "image_picker",
+			"id"		: "about_bottom_mini_img_3",
+			"label"		: "Image 3"
+		},
+		{
+			"type"		: "image_picker",
+			"id"		: "about_bottom_mini_img_4",
+			"label"		: "Image 4"
+		},
+		{
+			"type"		: "header",
+			"content"	: "Style"
+		},
+		{
+			"type"		: "select",
+			"id"		: "mini_img_column",
+			"label"		: "Bottom Image Column",
+			"options"	: [
+				{
+					"value"	: "2",
+					"label" : "2 Column"
+				},
+				{
+					"value"	: "3",
+					"label" : "3 Column"
+				},
+				{
+					"value"	: "4",
+					"label" : "4 Column"
+				}
+			],
+			"default"	: "4"
+		}
+	],
+	"presets": [
+		{
+		  "name"		: "About Section"
+		}
+	]
+}
+{% endschema %}
