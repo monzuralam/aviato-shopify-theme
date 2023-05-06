@@ -1,0 +1,95 @@
+<section class="team-members ">
+	<div class="container">
+        {%- if section.settings.enable_team_title -%}
+		<div class="row">
+			<div class="title"><h2>{{ section.settings.team_section_title }}</h2></div>
+		</div>
+        {%- endif -%}
+		<div class="row">
+            {%- for block in section.blocks -%}
+			<div class="col-md-3">
+				<div class="team-member text-center">
+                    {%- if block.settings.team_section_team_image != blank -%}
+                    {{ block.settings.team_section_team_image | image_url: width: 220 | image_tag: class: 'img-circle', loading: 'lazy'}}
+                    {%- endif -%}
+                    <h4>{{ block.settings.team_section_team_name }}</h4>
+					<p>{{ block.settings.team_section_team_position }}</p>
+				</div>
+			</div>
+            {%- endfor -%}
+		</div>
+	</div>
+</section>
+{% style %}
+    .team-members{
+        padding-bottom: 40px
+    }
+{% endstyle %}
+    
+{% schema %}
+{
+    "name"      : "Team Section",
+    "settings"  : [
+        {
+            "type"      : "checkbox",
+            "id"        : "enable_team_title",
+            "default"   : true,
+            "label"     : "Enable Team Title"
+        },
+        {
+            "type"      : "text",
+            "id"        : "team_section_title",
+            "default"   : "Team Members",
+            "label"     : "Section Title"
+        }
+    ],
+    "blocks"    : [
+        {
+            "type"      : "team",
+            "name"      : "Team Member",
+            "settings"  : [
+                {
+                    "type"      : "header",
+                    "content"   : "Team Section"
+                },
+                {
+                    "type"      : "image_picker",
+                    "id"        : "team_section_team_image",
+                    "label"     : "Image"
+                },
+                {
+                    "type"      : "text",
+                    "id"        : "team_section_team_name",
+                    "default"   : "Jonathon Andrew",
+                    "label"     : "Name"
+                },
+                {
+                    "type"      : "text",
+                    "id"        : "team_section_team_position",
+                    "default"   : "Developer",
+                    "label"     : "Position"
+                }
+            ]
+        }
+    ],
+    "presets"   : [
+        {
+            "name"  : "Team Section",
+            "blocks": [
+                {
+                    "type"  : "team"
+                },
+                {
+                    "type"  : "team"
+                },
+                {
+                    "type"  : "team"
+                },
+                {
+                    "type"  : "team"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
