@@ -4,7 +4,9 @@
 			{%- if section.settings.enable_about_img -%}
 				{%- assign column = 'col-md-6' -%}
 			<div class="{{column}}">
+				{%- if section.settings.about_image != blank -%}
 				{{ section.settings.about_image | image_url: width: 600 | image_tag: class: 'img-responsive', loading: 'lazy' }}
+				{%- endif -%}
 			</div>
 			{%- else -%}
 				{%- assign column = 'col-md-12' -%}
@@ -20,16 +22,24 @@
 		{%- if section.settings.enable_bottom_img -%}
 		<div class="row mt-40">
 			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{%- if section.settings.about_bottom_mini_img_1 != blank -%}
 				{{ section.settings.about_bottom_mini_img_1 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+				{%- endif -%}
 			</div>
 			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{%- if section.settings.about_bottom_mini_img_2 != blank -%}
 				{{ section.settings.about_bottom_mini_img_2 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+				{%- endif -%}
 			</div>
 			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{%- if section.settings.about_bottom_mini_img_3 != blank -%}
 				{{ section.settings.about_bottom_mini_img_3 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+				{%- endif -%}
 			</div>
 			<div class="col-md-{{ section.settings.mini_img_column }} text-center">
+				{%- if section.settings.about_bottom_mini_img_4 != blank -%}
 				{{ section.settings.about_bottom_mini_img_4 | image_url: width:108 | image_tag: class: "img-responsive", loading: 'lazy' }}
+				{%- endif -%}
 			</div>
 		</div>
 		{%- endif -%}
@@ -129,7 +139,7 @@
 					"label" : "4 Column"
 				}
 			],
-			"default"	: "4"
+			"default"	: "3"
 		}
 	],
 	"presets": [
