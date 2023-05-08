@@ -38,6 +38,8 @@
 				<!-- Contact Details -->
 				<div class="contact-details col-md-6 " >
 					{%- if section.settings.enable-google-maps -%}
+					{% assign latitude = section.settings.latitude %}
+					{% assign longitude = section.settings.longitude %}
 					<div class="google-map">
 						<div id="map"></div>
 					</div>
@@ -97,7 +99,10 @@
 		</div> <!-- end container -->
 	</div>
 </section>
-
+<script>
+	var latitude = {{ latitude }};
+	var longitude = {{ longitude }};
+</script>
 {% schema %}
 {
     "name"      : "Contact",
