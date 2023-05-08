@@ -1,0 +1,190 @@
+<section class="page-wrapper">
+	<div class="contact-section">
+		<div class="container">
+			<div class="row">
+				<!-- Contact Form -->
+				<div class="contact-form col-md-6 " >
+                    {% form 'contact' %}
+						<div class="form-group">
+							<input type="text" placeholder="{{ section.settings.name-placeholder }}" class="form-control {% if form.errors contains 'name' %}error{% endif %}" name="contact[name]" id="name">
+						</div>
+						
+						<div class="form-group">
+							<input type="email" placeholder="{{ section.settings.email-placeholder }}" class="form-control {% if form.errors contains 'email' %}error{% endif %}" name="contact[email]" id="email">
+						</div>
+						
+						<div class="form-group">
+							<input type="text" placeholder="{{ section.settings.subject-placeholder }}" class="form-control {% if form.errors contains 'subject' %}error{% endif %}" name="contact[subject]" id="subject">
+						</div>
+						
+						<div class="form-group">
+							<textarea rows="6" placeholder="{{ section.settings.message-placeholder }}" class="form-control" name="contact[message]" id="message"></textarea>	
+						</div>
+						{%- if form.posted_successfully? -%}
+						<div id="mail-success" class="success">
+							{{ 'contact.form.post_success' | t }}
+						</div>
+						{%- endif -%}
+						<div id="mail-fail" class="error">
+							{{ form.errors | default_errors }}
+						</div>
+						<div id="cf-submit">
+							<input type="submit" id="contact-submit" class="btn btn-transparent" value="Submit">
+						</div>						
+                    {% endform %}
+				</div>
+				<!-- ./End Contact Form -->
+				
+				<!-- Contact Details -->
+				<div class="contact-details col-md-6 " >
+					{%- if section.settings.enable-google-maps -%}
+					<div class="google-map">
+						<div id="map"></div>
+					</div>
+					{%- endif -%}
+					<ul class="contact-short-info" >
+						{%- if section.settings.address != blank -%}
+						<li>
+							<i class="tf-ion-ios-home"></i>
+							<span>{{ section.settings.address }}</span>
+						</li>
+						{%- endif -%}
+						{%- if section.settings.phone != blank -%}
+						<li>
+							<i class="tf-ion-android-phone-portrait"></i>
+							<span>Phone: {{ section.settings.phone }}</span>
+						</li>
+						{%- endif -%}
+						{%- if section.settings.fax != blank -%}
+						<li>
+							<i class="tf-ion-android-globe"></i>
+							<span>Fax: {{ section.settings.fax }}</span>
+						</li>
+						{%- endif -%}
+						{%- if section.settings.email != blank -%}
+						<li>
+							<i class="tf-ion-android-mail"></i>
+							<span>Email: {{ section.settings.email }}</span>
+						</li>
+						{%- endif -%}
+					</ul>
+					{%- if settings.enable_social_icon -%}
+					<!-- Footer Social Links -->
+					<div class="social-icon">
+						<ul>
+							{%- if settings.facebook_url != blank -%}
+							<li><a class="fb-icon" href="{{ settings.facebook_url }}"><i class="tf-ion-social-facebook"></i></a></li>
+							{%- endif -%}
+							{%- if settings.twitter_url != blank -%}
+							<li><a href="{{ settings.twitter_url }}"><i class="tf-ion-social-twitter"></i></a></li>
+							{%- endif -%}
+							{%- if settings.instagram_url != blank -%}
+							<li><a href="{{ settings.instagram_url }}"><i class="tf-ion-social-instagram-outline"></i></a></li>
+							{%- endif -%}
+							{%- if settings.pinterest_url != blank -%}
+							<li><a href="{{ settings.pinterest_url }}"><i class="tf-ion-social-pinterest-outline"></i></a></li>
+							{%- endif -%}
+							{%- if settings.youtube_url != blank -%}
+							<li><a href="{{ settings.youtube_url }}"><i class="tf-ion-social-youtube-outline"></i></a></li>
+							{%- endif -%}
+						</ul>
+					</div>
+					<!--/. End Footer Social Links -->
+					{%- endif -%}
+				</div>
+				<!-- / End Contact Details -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
+	</div>
+</section>
+
+{% schema %}
+{
+    "name"      : "Contact",
+    "settings"  : [
+        {
+            "type"      : "header",
+            "content"   : "Contact Form Setting"
+        },
+		{
+			"type"		: "text",
+			"id"		: "name-placeholder",
+			"default"	: "Your Name",
+			"label"		: "Name Placeholder"
+		},
+		{
+			"type"		: "text",
+			"id"		: "email-placeholder",
+			"default"	: "Your Email",
+			"label"		: "Email Placeholder"
+		},
+		{
+			"type"		: "text",
+			"id"		: "subject-placeholder",
+			"default"	: "Your Subject",
+			"label"		: "Subject Placeholder"
+		},
+		{
+			"type"		: "text",
+			"id"		: "message-placeholder",
+			"default"	: "Your Message",
+			"label"		: "Message Placeholder"
+		},
+		{
+            "type"      : "header",
+            "content"   : "Map Setting"
+        },
+		{
+			"type"		: "checkbox",
+			"id"		: "enable-google-maps",
+			"default"	: true,
+			"label"		: "Enable Google Maps"
+		},
+		{
+			"type"		: "text",
+			"id"		: "latitude",
+			"default"	: "23.8566125",
+			"label"		: "Latitude"
+		},
+		{
+			"type"		: "text",
+			"id"		: "longitude",
+			"default"	: "90.4036273",
+			"label"		: "Longitude"
+		},
+		{
+            "type"      : "header",
+            "content"   : "Contact Info Setting"
+        },
+		{
+			"type"		: "text",
+			"id"		: "address",
+			"default"	: "Dhaka, Bangladesh",
+			"label"		: "Address"
+		},
+		{
+			"type"		: "text",
+			"id"		: "phone",
+			"default"	: "+880-31-000-000",
+			"label"		: "Phone Number"
+		},
+		{
+			"type"		: "text",
+			"id"		: "fax",
+			"default"	: "+880-31-000-000",
+			"label"		: "Fax Number"
+		},
+		{
+			"type"		: "text",
+			"id"		: "email",
+			"default"	: "hello@example.com",
+			"label"		: "Email Address"
+		}
+    ],
+    "presets"   : [
+        {
+            "name"  : "Contact"
+        }
+    ]
+}
+{% endschema %}
