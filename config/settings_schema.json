@@ -6,5 +6,46 @@
     "theme_author": "Monzur Alam",
     "theme_documentation_url": "https://github.com/monzuralam/aviato-shopify-theme/",
     "theme_support_url": "https://github.com/monzuralam/aviato-shopify-theme/issues"
+  },
+  {
+    "name": "Social Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_social_icon",
+        "default": true,
+        "label": "Enable Social Icon"
+      },
+      {
+        "type": "text",
+        "id": "facebook_url",
+        "default": "https://facebook.com/mafixa",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "text",
+        "id": "twitter_url",
+        "default": "https://twitter.com/mafixa",
+        "label": "Twitter URL"
+      },
+      {
+        "type": "text",
+        "id": "instagram_url",
+        "default": "https://instagram.com/mafixa",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "pinterest_url",
+        "default": "https://pinterest.com/mafixa",
+        "label": "Pinterest URL"
+      },
+      {
+        "type": "text",
+        "id": "youtube_url",
+        "default": "https://youtube.com/mafixa",
+        "label": "Youtube URL"
+      }
+    ]
   }
 ]
