@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="title text-center">
-                <h2>Trendy Products</h2>
+                <h2>{{ section.settings.product_section_title }}</h2>
             </div>
         </div>
         <div class="row">
@@ -74,7 +74,12 @@
     "name"      : "Products",
     "class"     : "page-section",
     "settings"  : [
-
+        {
+            "type"      : "text",
+            "id"        : "product_section_title",
+            "default"   : "Trendy Products",
+            "label"     : "Title"
+        }
     ],
     "presets"   : [
         {
