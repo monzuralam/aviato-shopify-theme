@@ -6,7 +6,11 @@
             </div>
         </div>
         <div class="row">
-            {% for product in collections.frontpage.products limit:6 %}
+            {% assign collection_name = collections.frontpage.products %}
+            {% if section.settings.product_collection != blank %}
+                {% assign collection_name = collections[section.settings.product_collection].products %}
+            {% endif %}
+            {% for product in collection_name limit:6 %}
             <div class="col-md-4">
                 <div class="product-item">
                     <div class="product-thumb">
@@ -83,6 +87,11 @@
             "id"        : "product_section_title",
             "default"   : "Trendy Products",
             "label"     : "Title"
+        },
+        {
+            "type"      : "collection",
+            "id"        : "product_collection",
+            "label"     : "Collection"
         }
     ],
     "presets"   : [
