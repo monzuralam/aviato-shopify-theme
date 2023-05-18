@@ -1,3 +1,6 @@
+{%- if section.settings.enable_breadcrumbe -%}
+{% render 'breadcrumbe' %}
+{%- endif -%}
 {% if cart.item_count > 0 %}
     <h1>cart</h1>
     <form action="/cart" method="post" novalidate>
@@ -50,7 +53,12 @@
 {
     "name"      : "Cart",
     "settings"  : [
-        
+        {
+            "type"      : "checkbox",
+            "id"        : "enable_breadcrumbe",
+            "default"   : true,
+            "label"     : "Enable Breadcrumbe"
+        }
     ],
     "presets"   : [
         {
