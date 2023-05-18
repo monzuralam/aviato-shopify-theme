@@ -1,0 +1,47 @@
+<section class="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content">
+					<h1 class="page-name">
+                        {% if template contains 'product' %}
+                            {{ product.title }}
+                        {% elsif template contains 'collection' and collection.handle %}
+                            {{ collection.title }}
+                        {% elsif template == 'blog' %}
+                            {{ blog.title }}
+                        {% elsif template == 'article' %}
+                            {{ article.title }}
+                        {% elsif template contains 'page' %}
+                            {{ page.title }}
+                        {% elsif template contains 'cart' %}
+                            Cart
+                        {% else %}
+                            {{ page_title }}
+                        {% endif %}
+                    </h1>
+					<ol class="breadcrumb">
+						<li><a href="/">Home</a></li>
+						<li class="active">
+                            {% if template contains 'product' %}
+                                {{ product.title }}
+                            {% elsif template contains 'collection' and collection.handle %}
+                                {{ collection.title }}
+                            {% elsif template == 'blog' %}
+                                {{ blog.title }}
+                            {% elsif template == 'article' %}
+                                {{ article.title }}
+                            {% elsif template contains 'page' %}
+                                {{ page.title }}
+                            {% elsif template contains 'cart' %}
+                                cart
+                            {% else %}
+                                {{ page_title }}
+                            {% endif %}
+                        </li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
