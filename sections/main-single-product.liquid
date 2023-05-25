@@ -1,6 +1,5 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-<div>{{ product.description }}</div>
 <section class="single-product">
   <div class="container">
     <div class="row">
@@ -30,10 +29,6 @@
         <div class="single-product-details">
           <h2>{{ product.title }}</h2>
           <p class="product-price">  {{ current_variant.price | money }}</p>
-
-          <p class="product-description mt-20">
-            {{ product.description }}
-          </p>
           <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
             <select name="id" id="productSelect" class="form-control">
               {% for variant in product.variants %}
